@@ -1,20 +1,49 @@
 
-### First lets add the Helm Chart Repository
-Run `helm repo add starrocks-community https://starrocks.github.io/helm-charts`{{exec}}
+Get a shell into our toolbox
 
-### Then make sure that we have the latest charts
-Run `helm repo update`{{exec}}
+``{exec}}
 
-### Can't hurt to double check the versions of the chart
-Run `helm search repo starrocks-community`{{exec}}
+Create a database
 
-### Now we can do the standard install.  This will give you one Front End Node (FE) and a Back End Node (BE)
-Run `helm install starrocks starrocks-community/kube-starrocks`{{exec}}
+`create database demo;`{exec}}
 
-### Let's check what pods where installed
-Run `kubectl get pods`{{exec}}
+Create the table
+```
+drop table taxi_green;
+create table taxi_green (
+     tpep_pickup_datetime DATETIME     
+  , VendorID int                          
+  , tpep_dropoff_datetime DATETIME   
+  , passenger_count int                   
+  , trip_distance float                   
+  , PULocationID varchar(5)              
+  , DOLocationID varchar(5)                
+  , RatecodeID int                        
+  , store_and_fwd_flag varchar            
+  , payment_type int                       
+  , fare_amount float                      
+  , extra float                           
+  , mta_tax float                          
+  , improvement_surcharge float                         
+  , tip_amount float                      
+  , tolls_amount float                   
+  , total_amount float                     
+  , congestion_surcharge float            
+  , airport_fee float            
 
-### Finally check on the status of the deployment
-Run `kubectl --namespace default get starrockscluster -l "cluster=kube-starrocks"`{{exec}}
+)
+ENGINE=OLAP
+DUPLICATE KEY(`tpep_pickup_datetime`)
+DISTRIBUTED BY HASH(`tpep_pickup_datetime`) BUCKETS 9;
+```
+
+Load in the data
+
+Run 
+```
+alter system add broker local_load "172.26.199.40:8000";
+load label xxxx1 (data infile("file:///tmp/green_tripdata_2023-01.parquet") into table taxi_green format as "parquet"(UserID,ItemID,CategoryID,BehaviorType,Timestamp) ) with broker local_load properties("timeout"="3600");
+```{{exec}}
+
 
 
