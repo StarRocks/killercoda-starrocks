@@ -5,7 +5,7 @@ Run `docker exec -it toolbox /bin/bash`{{exec}}
 
 Create a database
 
-`create database demo;`{exec}}
+`create database demo;`{{exec}}
 
 Create the table
 
@@ -35,7 +35,7 @@ create table taxi_green (
 ENGINE=OLAP
 DUPLICATE KEY(`tpep_pickup_datetime`)
 DISTRIBUTED BY HASH(`tpep_pickup_datetime`) BUCKETS 9;
-```{exec}}
+```{{exec}}
 
 Load in the data
 
