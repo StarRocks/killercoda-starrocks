@@ -1,7 +1,7 @@
 
 Get a shell into our toolbox
 
-``{exec}}
+Run `docker exec -it toolbox /bin/bash`{{exec}}
 
 Create a database
 
