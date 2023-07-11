@@ -8,6 +8,7 @@ Create a database
 `create database demo;`{exec}}
 
 Create the table
+
 ```
 drop table taxi_green;
 create table taxi_green (
@@ -30,7 +31,6 @@ create table taxi_green (
   , total_amount float                     
   , congestion_surcharge float            
   , airport_fee float            
-
 )
 ENGINE=OLAP
 DUPLICATE KEY(`tpep_pickup_datetime`)
