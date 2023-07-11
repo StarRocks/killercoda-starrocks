@@ -1,5 +1,5 @@
 {
-  "title": "Kubernetes 1node",
+  "title": "Install StarRocks",
   "description": "Use a simple one node Kubernetes cluster and let user list all pods",
   "details": {
     "intro": {
