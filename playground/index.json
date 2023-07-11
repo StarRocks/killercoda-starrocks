@@ -1,0 +1,21 @@
+{
+  "title": "Playground",
+  "description": "This contains an instance of the StarRocks Quickstart Container for your to play around",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Launch the StarRocks QuickStart Container",
+        "text": "step1.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-k3s-1node-4GB"
+  }
+}
