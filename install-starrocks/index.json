@@ -1,14 +1,22 @@
 {
-  "title": "Install StarRocks",
-  "description": "Use a simple one node Kubernetes cluster and let user list all pods",
+  "title": "NYC Green Taxi Data (Parquet format) with StarRocks",
+  "description": "Loading and querying NYC Green Taxi Data (Parquet format) with StarRocks",
   "details": {
     "intro": {
       "text": "intro.md"
     },
     "steps": [
       {
-        "title": "Install the StarRocks Helm Chart",
+        "title": "Install the StarRocks QuickStart Container",
         "text": "step1.md"
+      },
+      {
+        "title": "Download the NYC Green Taxi Data",
+        "text": "step2.md"
+      },
+      {
+        "title": "Create a database, database table and query the data",
+        "text": "step3.md"
       }
     ],
     "finish": {
