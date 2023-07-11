@@ -23,6 +23,11 @@ Run `mysql -P9030 -h172.17.0.2 -uroot --prompt="StarRocks >`{{exec}}
 
 Run `select current_version();`{{exec}}
 
+Exit out of the mysql and toolbox shell
+
+Run `exit`{{exec}}
+
+Run `exit`{{exec}}
 
 
 
