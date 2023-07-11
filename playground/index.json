@@ -1,6 +1,6 @@
 {
   "title": "Playground",
-  "description": "This contains an instance of the StarRocks Quickstart Container for your to play around",
+  "description": "This contains an instance of the StarRocks Quickstart Container for you to play around",
   "details": {
     "intro": {
       "text": "intro.md"
