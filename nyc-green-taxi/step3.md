@@ -5,7 +5,7 @@ Run `docker exec -it toolbox /bin/bash`{{exec}}
 
 Then run the mysql client
 
-Run mysql -P9030 -h172.17.0.2 -uroot --prompt="StarRocks > "{{exec}}
+Run `mysql -P9030 -h172.17.0.2 -uroot --prompt="StarRocks > "`{{exec}}
 
 Create a database
 
