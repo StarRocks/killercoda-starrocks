@@ -7,7 +7,7 @@
     },
     "steps": [
       {
-        "title": "List all pods",
+        "title": "Install the StarRocks Helm Chart",
         "text": "step1.md"
       }
     ],
