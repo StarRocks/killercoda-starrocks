@@ -41,7 +41,7 @@ Load in the data
 
 Run 
 ```
-alter system add broker local_load "172.26.199.40:8000";
+alter system add broker local_load "172.17.0.2:8000";
 load label xxxx1 (data infile("file:///tmp/green_tripdata_2023-01.parquet") into table taxi_green format as "parquet"(UserID,ItemID,CategoryID,BehaviorType,Timestamp) ) with broker local_load properties("timeout"="3600");
 ```{{exec}}
 
