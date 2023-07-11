@@ -1,5 +1,5 @@
 {
-  "title": "NYC Green Taxi Data (Parquet format) with StarRocks",
+  "title": "NYC Green Taxi Data",
   "description": "Loading and querying NYC Green Taxi Data (Parquet format) with StarRocks",
   "details": {
     "intro": {
