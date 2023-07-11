@@ -35,7 +35,7 @@ create table taxi_green (
 ENGINE=OLAP
 DUPLICATE KEY(`tpep_pickup_datetime`)
 DISTRIBUTED BY HASH(`tpep_pickup_datetime`) BUCKETS 9;
-```
+```{exec}}
 
 Load in the data
 
