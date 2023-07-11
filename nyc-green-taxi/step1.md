@@ -1,20 +1,15 @@
 
-### First lets add the Helm Chart Repository
-Run `helm repo add starrocks-community https://starrocks.github.io/helm-charts`{{exec}}
+First lets download and run the StarRocks QuickStart Container
+Run `docker run -p 9030:9030 -p 8030:8030 -p 8040:8040 -itd --name=starrocks starrocks/allin1-ubuntu`{{exec}}
 
-### Then make sure that we have the latest charts
-Run `helm repo update`{{exec}}
+To make sure it works, let's also download and run the StarRocks tool-box.  The StarRocks tool-box is a container with a bunch of useful binaries like the mysql client.  See more about the tool-box at https://hub.docker.com/r/atwong/starrocks-tool-box
+Run `docker run -itd --name=toolbox atwong/starrocks-tool-box`{{exec}}
 
-### Can't hurt to double check the versions of the chart
-Run `helm search repo starrocks-community`{{exec}}
+Let's now test the StarRocks instance
+Run `docker exec -it toolbox /bin/bash`{{exec}}
+Run `mysql -P9030 -h{{TRAFFIC_HOST1_80}} -uroot --prompt="StarRocks >`{{exec}}
+Run `select current_version();`{{exec}}
 
-### Now we can do the standard install.  This will give you one Front End Node (FE) and a Back End Node (BE)
-Run `helm install starrocks starrocks-community/kube-starrocks`{{exec}}
 
-### Let's check what pods where installed
-Run `kubectl get pods`{{exec}}
-
-### Finally check on the status of the deployment
-Run `kubectl --namespace default get starrockscluster -l "cluster=kube-starrocks"`{{exec}}
 
 
