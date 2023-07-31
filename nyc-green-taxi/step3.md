@@ -57,7 +57,7 @@ use demo;
 show load;
 ```{{exec}}
 
-Query the dawta
+Query the data
 
 ```
 select * from taxi_green limit 10;
