@@ -1,7 +1,7 @@
 
 First, lets download and run the StarRocks QuickStart Container
 
-Run `docker run -p 9030:9030 -p 8030:8030 -p 8040:8040 -itd --name=starrocks starrocks/allin1-ubuntu`{{exec}}
+Run `docker run -p 9030:9030 -p 8030:8030 -p 8040:8040 -itd --name=starrocks lvlouisaslia/allin1-ubi:test`{{exec}}
 
 To make sure it works, let's also download and run the StarRocks tool-box.  The StarRocks tool-box is a container with a bunch of useful binaries like the mysql client.  See more about the tool-box at https://hub.docker.com/r/atwong/starrocks-tool-box
 
