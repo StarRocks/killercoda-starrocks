@@ -16,9 +16,9 @@ Create the table
 ```
 drop table demo.taxi_green;
 create table demo.taxi_green (
-     tpep_pickup_datetime DATETIME     
+     lpep_pickup_datetime DATETIME     
   , VendorID int                          
-  , tpep_dropoff_datetime DATETIME   
+  , lpep_dropoff_datetime DATETIME   
   , passenger_count int                   
   , trip_distance float                   
   , PULocationID string          
@@ -37,8 +37,8 @@ create table demo.taxi_green (
   , trip_type int         
 )
 ENGINE=OLAP
-DUPLICATE KEY(`tpep_pickup_datetime`)
-DISTRIBUTED BY HASH(`tpep_pickup_datetime`) BUCKETS 9;
+DUPLICATE KEY(`lpep_pickup_datetime`)
+DISTRIBUTED BY HASH(`lpep_pickup_datetime`) BUCKETS 9;
 ```{{exec}}
 
 Load in the data
@@ -47,7 +47,7 @@ Run
 
 ```
 use demo;
-load label taxiload1 (data infile("file:///tmp/green_tripdata_2023-01.parquet") into table taxi_green format as "parquet"(VendorID, tpep_pickup_datetime, tpep_dropoff_datetime, passenger_count, RatecodeID, trip_distance, store_and_fwd_flag, PULocationID, DOLocationID, payment_type, fare_amount, extra, mta_tax, tip_amount, tolls_amount, improvement_surcharge, total_amount, congestion_surcharge, airport_fee ) ) with broker local_load properties("timeout"="3600");
+load label taxiload1 (data infile("file:///tmp/green_tripdata_2023-01.parquet") into table taxi_green format as "parquet"(VendorID, tpep_pickup_datetime, tpep_dropoff_datetime, passenger_count, RatecodeID, trip_distance, store_and_fwd_flag, PULocationID, DOLocationID, payment_type, fare_amount, extra, mta_tax, tip_amount, tolls_amount, improvement_surcharge, total_amount, congestion_surcharge, airport_fee ) ) with broker allin1broker properties("timeout"="3600");
 ```{{exec}}
 
 To check the status run
@@ -55,6 +55,12 @@ To check the status run
 ```
 use demo;
 show load;
+```{{exec}}
+
+Query the dawta
+
 ```
+select * from taxi_green limit 10;
+```{{exec}}
 
 
