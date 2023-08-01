@@ -13,41 +13,28 @@ Create a database
 
 Create the table
 
-```
-Use demo;
-Drop table user_behavior;
-CREATE TABLE `user_behavior` (
-  `UserID` int(11) NULL COMMENT "",
-  `ItemID` int(11) NULL COMMENT "",
-  `CategoryID` int(11) NULL COMMENT "",
-  `BehaviorType` varchar(65533) NULL COMMENT "",
-  `Timestamp` datetime NULL COMMENT ""
-) ENGINE=OLAP 
-DUPLICATE KEY(`UserID`)
-COMMENT "OLAP"
-DISTRIBUTED BY HASH(`UserID`) BUCKETS 1 ;
-```{{exec}}
+`use demo;`{{exec}}
+
+`Drop table user_behavior;`{{exec}}
+
+`CREATE TABLE `user_behavior` ( `UserID` int(11) NULL COMMENT "", `ItemID` int(11) NULL COMMENT "", `CategoryID` int(11) NULL COMMENT "",  `BehaviorType` varchar(65533) NULL COMMENT "", `Timestamp` datetime NULL COMMENT "" ) ENGINE=OLAP DUPLICATE KEY(`UserID`) COMMENT "OLAP" DISTRIBUTED BY HASH(`UserID`) BUCKETS 1 ;`{{exec}}
 
 Load in the data
 
 Run 
-```
-use demo;
-load label ecommload1 (data infile("file:///tmp/user_behavior_sample_data.parquet") into table user_behavior format as "parquet" ) with broker allin1broker properties("timeout"="3600");
-```{{exec}}
+`use demo;`{{exec}}
+
+`load label ecommload1 (data infile("file:///tmp/user_behavior_sample_data.parquet") into table user_behavior format as "parquet" ) with broker allin1broker properties("timeout"="3600");`{{exec}}
 
 To check the status run
 
-```
-use demo;
-show load;
-```{{exec}}
+`use demo;`{{exec}}
+
+`show load;`{{exec}}
 
 Query the data
 
-```
-select * from user_behavior limit 10;
-```{{exec}}
+`select * from user_behavior limit 10;`{{exec}}
 
 Scenario 1: Higher level view of users completing this conversion path within 1800s
 
