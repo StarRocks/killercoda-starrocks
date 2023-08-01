@@ -25,23 +25,14 @@ CREATE TABLE `user_behavior` (
 ) ENGINE=OLAP 
 DUPLICATE KEY(`UserID`)
 COMMENT "OLAP"
-DISTRIBUTED BY HASH(`UserID`) BUCKETS 1 
-PROPERTIES (
-"replication_num" = "1",
-"in_memory" = "false",
-"storage_format" = "DEFAULT",
-"enable_persistent_index" = "false",
-"replicated_storage" = "true",
-"compression" = "LZ4"
-);
+DISTRIBUTED BY HASH(`UserID`) BUCKETS 1 ;
 ```{{exec}}
 
 Load in the data
 
 Run 
 ```
-alter system add broker local_load "172.17.0.2:8000";
-load label taxiload1 (data infile("file:///tmp/green_tripdata_2023-01.parquet") into table taxi_green format as "parquet"(VendorID, tpep_pickup_datetime, tpep_dropoff_datetime, passenger_count, RatecodeID, trip_distance, store_and_fwd_flag, PULocationID, DOLocationID, payment_type, fare_amount, extra, mta_tax, tip_amount, tolls_amount, improvement_surcharge, total_amount, congestion_surcharge, airport_fee ) ) with broker local_load properties("timeout"="3600");
+load label ecommload1 (data infile("file:///tmp/user_behavior_sample_data.parquet") into table user_behavior format as "parquet" ) with broker allin1broker properties("timeout"="3600");
 ```{{exec}}
 
 Scenario 1: Higher level view of users completing this conversion path within 1800s
