@@ -1,12 +1,12 @@
 
-Get a shell to the toolbox again.
+Get a shell to the starrocks container.
 
-Run `docker exec -it toolbox /bin/bash`{{exec}}
+Run `docker exec -it starrocks /bin/bash`{{exec}}
 
-Download the TaoBao eCommerce data 
+Download the Ecommerce Behavior data 
 
-Run `wget -P /tmp/ https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2023-01.parquet`{{exec}}
+Run `curl https://cdn.starrocks.io/dataset/user_behavior_sample_data.parquet -o /tmp/user_behavior_sample_data.parquet`{{exec}}
 
-Exit out of the toolbox
+Exit out of the container.
 
 Run `exit`{{exec}}
