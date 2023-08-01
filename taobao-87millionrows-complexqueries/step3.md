@@ -32,7 +32,21 @@ Load in the data
 
 Run 
 ```
+use demo;
 load label ecommload1 (data infile("file:///tmp/user_behavior_sample_data.parquet") into table user_behavior format as "parquet" ) with broker allin1broker properties("timeout"="3600");
+```{{exec}}
+
+To check the status run
+
+```
+use demo;
+show load;
+```{{exec}}
+
+Query the data
+
+```
+select * from user_behavior limit 10;
 ```{{exec}}
 
 Scenario 1: Higher level view of users completing this conversion path within 1800s
