@@ -37,8 +37,8 @@ create table demo.taxi_green (
   , trip_type int         
 )
 ENGINE=OLAP
-DUPLICATE KEY('lpep_pickup_datetime')
-DISTRIBUTED BY HASH('lpep_pickup_datetime') BUCKETS 9;
+DUPLICATE KEY(lpep_pickup_datetime)
+DISTRIBUTED BY HASH(lpep_pickup_datetime) BUCKETS 9;
 ```{{exec}}
 
 Load in the data
