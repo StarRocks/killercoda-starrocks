@@ -1,0 +1,12 @@
+{
+  "title": "StarRocks with Apache Hudi",
+  "description": "How to query data in Apache Hudi using StarRocks",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-k3s-1node-4GB"
+  }
+}
