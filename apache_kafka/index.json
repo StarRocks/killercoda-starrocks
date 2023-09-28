@@ -1,0 +1,25 @@
+{
+  "title": "StarRocks with Apache Kafka via Confluent Cloud",
+  "description": "Use Confluent Cloud DataGen to generate real time data into Apache Kafka and sink it into StarRocks",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Launch the StarRocks QuickStart Container",
+        "text": "step1.md"
+      },
+      {
+        "title": "Follow the StarRocks with Apache Kafka Tutorial",
+        "text": "step2.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-k3s-1node-4GB"
+  }
+}
