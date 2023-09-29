@@ -24,3 +24,5 @@ Run `mysql -P9030 -h172.17.0.2 -uroot --prompt="StarRocks > "`{{exec}}
 Run `select current_version();`{{exec}}
 
 Now you can run any SQL command you'd like against this StarRocks instance.
+
+Bonus: You can also see a list of tutorials at https://github.com/StarRocks/starrocks/discussions/categories/how-tos-tutorials-best-practices-and-architecture-articles.
