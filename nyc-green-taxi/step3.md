@@ -63,4 +63,4 @@ Query the data
 select * from taxi_green limit 10;
 ```{{exec}}
 
-
+If you want to see the profile of the queries (eg. see how much time it takes to execute the stages of the query), read https://github.com/StarRocks/starrocks/discussions/29735 for more info. 
