@@ -1,2 +1,2 @@
-# StarRocks Killercoda Scenario 
+# StarRocks Scenario for Killercoda.com
 
